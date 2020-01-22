@@ -20,6 +20,14 @@ li.dev-item header img{
 li.dev-item header .user-info{
     margin-left: 10px;
 }
+li.dev-item header .botao-excluir{
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    border-color: #5a2ea6;
+    margin-left: 10px;
+    border-radius: 50%;
+}
 
 .user-info strong{
     display:block;
