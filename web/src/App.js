@@ -23,11 +23,13 @@ function App() {
   async function handleAddDev(data){
 
     const response = await api.post('/devs', data)
-
-    console.log(response.data);
     setDevs([...devs, response.data]);
   }
-
+  async function handleDeleteDev(e){
+    await api.delete(`/destroy/${e.dev.github_username}`)
+    const response = await api.get('/devs');
+    setDevs(response.data)
+  }
   return(
   <div id="app">
     <aside>
@@ -37,7 +39,7 @@ function App() {
     <main>
       <ul>
         {devs.map(dev=>(
-          <DevItem key ={dev._id} dev={dev}/>
+          <DevItem key ={dev._id} dev={dev} onClickCapture={handleDeleteDev}/>
         ))}
       </ul>
     </main>
